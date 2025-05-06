@@ -7,6 +7,8 @@ import java.time.LocalDateTime;
 
 @Entity
 public class Servico {
+
+
     @Id @GeneratedValue
     private Long id;
     private String nome;

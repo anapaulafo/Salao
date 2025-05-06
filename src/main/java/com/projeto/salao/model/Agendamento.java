@@ -9,8 +9,10 @@ public class Agendamento {
     @Id @GeneratedValue
     private Long id;
 
+    @ManyToOne
     private Usuario usuario;
 
+    @ManyToOne
     private Servico servico;
 
     private LocalDateTime dataHora;
