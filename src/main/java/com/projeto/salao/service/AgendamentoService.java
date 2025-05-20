@@ -1,4 +1,5 @@
 package com.projeto.salao.service;
+
 import com.projeto.salao.model.Agendamento;
 import com.projeto.salao.repository.AgendamentoRepository;
 import org.springframework.stereotype.Service;
@@ -20,5 +21,26 @@ public class AgendamentoService {
 
     public List<Agendamento> listarTodos() {
         return agendamentoRepository.findAll();
+    }
+
+    public Agendamento buscarPorId(Long id) {
+        return agendamentoRepository.findById(id).orElse(null);
+    }
+
+    public Agendamento atualizar(Long id, Agendamento novoAgendamento) {
+        return agendamentoRepository.findById(id).map(agendamento -> {
+            agendamento.setUsuario(novoAgendamento.getUsuario());
+            agendamento.setServico(novoAgendamento.getServico());
+            agendamento.setDataHora(novoAgendamento.getDataHora());
+            return agendamentoRepository.save(agendamento);
+        }).orElse(null);
+    }
+
+    public boolean deletar(Long id) {
+        if (agendamentoRepository.existsById(id)) {
+            agendamentoRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }

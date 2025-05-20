@@ -2,6 +2,7 @@ package com.projeto.salao.model;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import com.projeto.salao.validator.PrecoValido;
 
 
 
@@ -12,6 +13,7 @@ public class Servico {
     @Id @GeneratedValue
     private Long id;
     private String nome;
+    @PrecoValido
     private BigDecimal preco;
     private LocalDateTime horarioDisponivel;
 

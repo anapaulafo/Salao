@@ -2,9 +2,11 @@ package com.projeto.salao.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import com.projeto.salao.validator.PrecoValido;
 
 public class ServicoDTO {
     private String nome;
+    @PrecoValido
     private BigDecimal preco;
     private LocalDateTime horarioDisponivel;
 
