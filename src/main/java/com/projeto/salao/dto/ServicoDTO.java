@@ -10,7 +10,6 @@ public class ServicoDTO {
     private BigDecimal preco;
     private LocalDateTime horarioDisponivel;
 
-    // Getters e setters
 
     public String getNome() {
         return nome;

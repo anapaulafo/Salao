@@ -20,7 +20,9 @@ public class AgendamentoService {
     }
 
     public List<Agendamento> listarTodos() {
-        return agendamentoRepository.findAll();
+
+        return agendamentoRepository.listarTodosOrdenadosPorData();
+
     }
 
     public Agendamento buscarPorId(Long id) {
